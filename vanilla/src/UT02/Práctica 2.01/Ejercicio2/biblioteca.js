@@ -23,7 +23,7 @@ const mostrarGanador = (mediaJuan, mediaMiguel, mediaMaria) => {
     if(mediaJuan > mediaMiguel && mediaJuan > mediaMaria){
         return `Juan es el ganador y su media es ${mediaJuan}`;
     } else if (mediaMiguel > mediaJuan && mediaMiguel > mediaMaria){
-        return `Miguel es el ganador y su media es ${mediaMiguel}`;
+        return `Migue es el ganador y su media es ${mediaMiguel}`;
     } else if (mediaMaria > mediaJuan && mediaMaria > mediaMiguel ){
         return `Maria es la ganadora, y su media es ${mediaMaria}`;
     } else {
