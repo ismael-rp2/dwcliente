@@ -1,14 +1,12 @@
 "use strict";
 
-//A poder ser hay que hacer las cosas en una sola línea
-//siempre que se pueda
+/**
+ * Función para calcular el Índice de Masa Corporal (IMC).
+ * @param {number} masa - La masa en kilogramos.
+ * @param {number} altura - La altura en metros.
+ * @returns {number} El valor calculado del IMC.
+ */
+const calcularIMC = (masa, altura) => masa / (altura * altura);
 
-function calcularIndiceMasaCorporal(peso, altura) {
-    return peso / (altura * altura);
-}
-
-function tieneIMCMayor(imc1, imc2){
-    return imc1 > imc2;
-}
-
-export { calcularIndiceMasaCorporal, tieneIMCMayor };
+// Exportamos la función para poder usarla en otros archivos
+export { calcularIMC };

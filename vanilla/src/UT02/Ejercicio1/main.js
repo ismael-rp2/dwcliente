@@ -1,16 +1,19 @@
 "use strict";
 
-/*
-*   Lo mejor es hacerlo todo en una sola línea,
-*   cuentos menos líneas mejor. Ejemplo:
-*   Tiene IMCMayor(calcularIMC(peso1, altura1), calcularIMC(peso2, altura2));
-*/
+import { calcularIMC } from "./biblioteca.js";
 
-import { calcularIndiceMasaCorporal, tieneIMCMayor } from "./biblioteca.js";
+// 1. Guardar las masas y alturas de Marcos y Juan en variables
+const masaMarcos = 70;
+const alturaMarcos = 1.75;
+const masaJuan = 80;
+const alturaJuan = 1.80;
 
-let imc1 = calcularIndiceMasaCorporal(70, 1.75);
-let imc2 = calcularIndiceMasaCorporal(80, 1.80);
+// 2. Calcular ambos IMC
+const imcMarcos = calcularIMC(masaMarcos, alturaMarcos);
+const imcJuan = calcularIMC(masaJuan, alturaJuan);
 
-let pesoMayor = tieneIMCMayor(imc1, imc2);
+// 3. Crear una variable booleana para saber si Marcos tiene mayor IMC
+const tieneMarcosMayorIMC = imcMarcos > imcJuan;
 
-console.log(`¿Tiene Marcos un IMC mayor que Juan?: ${pesoMayor ? "Sí" : "No"}`);
+// 4. Mostrar la información en la consola
+console.log(`¿Tiene Marcos un IMC mayor que el de Juan?: ${tieneMarcosMayorIMC ? "Si" : "No"}`);
