@@ -8,4 +8,4 @@ import { iteracion } from "./biblioteca.js";
 const repeticiones = 4;
 const valorInicial = 6;
 
-iteracion(repeticiones, valorInicial);
+console.log(`${iteracion(repeticiones, valorInicial)}`);

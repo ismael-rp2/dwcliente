@@ -17,7 +17,7 @@ const iteracion = (repeticiones, valorInicial) => {
     }
     
     // Mostramos la cadena completa por pantalla al salir del bucle
-    console.log(resultado);
+    return resultado;
 };
 
 export { iteracion };
