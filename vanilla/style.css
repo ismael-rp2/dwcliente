@@ -1,0 +1,97 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #121212; /* Fondo totalmente negro */
+  color: #e0e0e0; /* Texto gris claro para no cansar la vista */
+  line-height: 1.6;
+  padding: 40px 20px; /* Margen superior amplio */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main#app {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Espacio entre las prácticas */
+}
+
+/* Tarjetas de cada práctica */
+.practica {
+  background: #2a2a2a; /* Gris muy oscuro, casi negro */
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a; /* Borde sutil */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.practica h2 {
+  color: #ffffff;
+  border-bottom: 2px solid #2a2a2a;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+}
+
+/* Configuración base del Grid para que ordene en columnas (arriba-abajo y luego a la derecha) */
+.ejercicios-grid {
+  list-style: none;
+  display: grid;
+  gap: 15px;
+  grid-auto-flow: column; /* Hace que se llenen primero las columnas de arriba a abajo */
+}
+
+/* --- PRÁCTICA 2.01: 2 columnas, 2 filas --- */
+.grid-2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+/* --- PRÁCTICA 2.02: 3 columnas, 2 filas --- */
+.grid-3x2 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+/* Estilos de los enlaces (botones) */
+.listado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #1e1e1e; /* Fondo del botón */
+  color: #4da8da; /* Azul neón claro para contrastar */
+  text-decoration: none;
+  padding: 20px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid #333333;
+}
+
+/* Efecto Hover */
+.listado:hover {
+  background-color: #4da8da; /* El fondo se vuelve azul */
+  color: #000000; /* El texto se vuelve negro */
+  transform: translateY(-4px); /* Se levanta un poco */
+  box-shadow: 0 8px 20px rgba(77, 168, 218, 0.3); /* Resplandor azul */
+  border-color: #4da8da;
+}
+
+/* Ajustes para móviles: si la pantalla es muy pequeña, lo pasamos a 1 sola columna para que no se vea aplastado */
+@media (max-width: 600px) {
+  .ejercicios-grid {
+    grid-auto-flow: row; /* Vuelve a llenarse de izquierda a derecha de forma normal */
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+}
