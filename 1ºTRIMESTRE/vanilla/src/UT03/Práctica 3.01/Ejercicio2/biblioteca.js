@@ -1,34 +1,42 @@
 "use strict";
 
-
 /**
- * Imprimir la tabla de multiplicar de cada número
- * @param {Number} numero El número de tablas de multiplicar 
+ * Función callback: Imprime la tabla de multiplicar de un número.
+ * @param {Number} numero - El número del que imprimir la tabla.
  */
-const multiplicar = (numero) => {
+const imprimirTabla = (numero) => {
     console.log(`\n--- TABLA DEL ${numero} ---`);
     for (let i = 1; i <= 10; i++) {
-        console.log(`\n${numero} x ${i} = ${numero * i}`);
-    }
-}
-
-
-/**
- * Verificación de número válido y llamada a la función multiplicar
- * hasta que el número sea igual a 2.
- * @param {Number} numeroInicio La tabla del numero donde se comienza
- * @param {Function} multiplicar Imprimir la función correctamente
- * @returns Las tablas hasta el 2
- */
-const tablas = (numeroInicio, multiplicar) => {
-    // Verificación de número váido
-    if (!Number.isInteger(numeroInicio) || numeroInicio <= 2) {
-        console.error("ERROR - Introduce un número entero positivo mayor a dos.");
-    }
-
-    for (let i = numeroInicio; i >= 2; i--) { // Bucle hacia atrás hasta llegar al número 2.
-        multiplicar(i);
+        console.log(`${numero} x ${i} = ${numero * i}`);
     }
 };
 
-export {tablas, multiplicar};
+/**
+ * Imprime las tablas de multiplicar hacia atrás desde un número dado.
+ * 
+ * @param {Number} numeroInicio - Número desde el que empezar (entero > 2).
+ * @param {Function} callbackMultiplicar - Función para imprimir cada tabla.
+ */
+const tablas = (numeroInicio, callbackMultiplicar) => {
+    // 1. Cláusula de guarda: Validación estricta
+    if (typeof numeroInicio !== 'number' || !Number.isInteger(numeroInicio) || numeroInicio <= 2) {
+        console.error("ERROR - El parámetro debe ser un número entero positivo mayor que dos.");
+        return;
+    }
+    
+    // 2. Cláusula de guarda: Validar que el segundo parámetro es una función
+    if (typeof callbackMultiplicar !== 'function') {
+         console.error("ERROR - El segundo parámetro debe ser una función.");
+         return;
+    }
+
+    // Lógica: Bucle hacia atrás hasta el 2 (incluido)
+    let contador = numeroInicio;
+    while (contador >= 2) {
+        // Ejecutamos la función pasada por parámetro
+        callbackMultiplicar(contador);
+        contador--;
+    }
+};
+
+export { tablas, imprimirTabla };

@@ -1,10 +1,8 @@
 "use strict";
 
-import { tablas } from "./biblioteca.js";
-import { multiplicar } from "./biblioteca.js";
+import { tablas, imprimirTabla } from "./biblioteca.js";
 
-console.log(`Caso 1: `);
-console.log(tablas(1, multiplicar));
-
-console.log(`Caso 2: `);
-console.log(tablas(5, multiplicar));
+console.log("-- EJERCICIO 2 --");
+tablas(1, imprimirTabla); // Error: menor que 2
+tablas(5, "hola"); // Error: no es función
+tablas(5, imprimirTabla); // Funciona

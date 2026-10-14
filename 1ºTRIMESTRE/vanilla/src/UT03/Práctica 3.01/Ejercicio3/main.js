@@ -1,8 +1,10 @@
 "use strict";
 
+import { calcularGastosViaje } from "./biblioteca.js";
 
-console.log(`Caso 1: `);
+console.log("-- EJERCICIO 3 --");
 
+// Facturas proporcionadas en el enunciado
+const facturasViaje = [124, 48, 268];
 
-
-console.log(`Caso 2: `);
+console.log(calcularGastosViaje(facturasViaje));
