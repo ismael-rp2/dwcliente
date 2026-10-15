@@ -97,6 +97,12 @@ main#app {
   grid-template-rows: repeat(2, 1fr);
 }
 
+/* --- PRÁCTICAS 3.04 y 3.05: 3 columnas, 1 fila --- */
+.grid-3x1 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+}
+
 /* Estilos de los enlaces (botones) */
 .listado {
   display: flex;
