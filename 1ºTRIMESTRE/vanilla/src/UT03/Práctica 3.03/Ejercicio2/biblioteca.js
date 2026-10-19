@@ -24,4 +24,18 @@ const calcularMedia = (discente) => {
     }
 };
 
-export {discente, calcularMedia};
+const imprimirAficiones = (discente) => {
+    console.log(`Aficiones de ${discente[nombre]}`);
+    discente.array.forEach( (valor, indice, array) => {
+        console.log(`${indice+1}. ${discente[aficiones]}`);
+    });
+
+};
+
+const imprimirInforme = () => {
+
+};
+
+
+
+export {discente, calcularMedia, imprimirAficiones, imprimirInforme};
