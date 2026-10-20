@@ -19,21 +19,26 @@ const calcularMedia = (discente) => {
         return;
     }
 
-    for(const propiedad in discente){
-        console.log(`${propiedad}: ${discente[propiedad]}`);
-    }
+    let media = (discente.notas.primera + discente.notas.segunda + discente.notas.tercera) / 3;
+
+    console.log(`Nota media: ${media.toFixed(2)}`);
 };
 
+
 const imprimirAficiones = (discente) => {
-    console.log(`Aficiones de ${discente[nombre]}`);
-    discente.array.forEach( (valor, indice, array) => {
-        console.log(`${indice+1}. ${discente[aficiones]}`);
+    console.log(`Aficiones: `);
+    discente.aficiones.forEach((valor, indice, array) => {
+        console.log(`${indice + 1}. ${valor}`);
     });
 
 };
 
 const imprimirInforme = () => {
-
+    console.log(`--- INFORME DEL ALUMNO ---`);
+    console.log(`ID: ${discente.id}`);
+    console.log(`Nombre completo: ${discente.nombre} ${discente.apellidos}`);
+    calcularMedia(discente);
+    imprimirAficiones(discente)
 };
 
 

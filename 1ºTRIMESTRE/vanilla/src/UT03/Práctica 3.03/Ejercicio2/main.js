@@ -2,4 +2,4 @@
 
 import { calcularMedia, imprimirAficiones, imprimirInforme, discente } from "./biblioteca.js";
 
-calcularMedia(discente);
+imprimirInforme(discente);
