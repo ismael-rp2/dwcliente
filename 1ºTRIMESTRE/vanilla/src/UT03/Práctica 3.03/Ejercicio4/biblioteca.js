@@ -1,45 +1,55 @@
 "use strict";
 
-// 1. PRIMERO PONEMOS LA CALCULADORA (Del ejercicio 3)
-const calcularLetraDNI = (numeroDNI) => {
-    const letrasOficiales = "TRWAGMYFPDXBNJZSQVHLCKE";
-    const resto = numeroDNI % 23;
-    return letrasOficiales[resto];
-};
-
-
-// 2. LUEGO PONEMOS EL BUSCADOR (Del ejercicio 5)
-const buscarDniPorLetra = (letraBuscada) => {
+const imprimirObjeto = (objeto) => {
     
-    if (typeof letraBuscada !== 'string' || letraBuscada.length !== 1) {
-        console.error("ERROR - Debes introducir una única letra, zoquete.");
+    // 1. TU PORTERO (¡Lo mantenemos porque está perfecto!)
+    if(typeof objeto !== 'object' || objeto === null || Array.isArray(objeto)){
+        console.error(`ERROR - El elemento debe ser de tipo objeto, zoquete`);
         return;
     }
 
-    const letra = letraBuscada.toUpperCase();
-    let contador = 0;
-    let listadoDNI = ""; 
+    console.log(`\n--- ANÁLISIS DEL OBJETO ---`);
 
-    const inicio = 48357001;
-    const fin = 48360000;
-
-    for (let numeroActual = inicio; numeroActual <= fin; numeroActual++) {
+    // 2. RECORREMOS EL OBJETO (Igual que en el Ejercicio 1)
+    for (const clave in objeto) {
         
-        // ¡AQUÍ ESTABA EL ERROR! 
-        // Ahora sí que encuentra 'calcularLetraDNI' porque está declarada justo arriba.
-        const letraCalculada = calcularLetraDNI(numeroActual);
+        // Guardamos el valor actual en una constante para que sea más fácil trabajar
+        // PISTA: Usa los corchetes con la variable 'clave'
+        const valorActual = clave;
+        
+        let mensajeSalida = `Clave: "${clave}" -> `;
 
-        if (letraCalculada === letra) {
-            contador++;
-            listadoDNI += `  - ${numeroActual}-${letra}\n`;
+        // 3. ACTUAMOS SEGÚN EL TIPO (El corazón del ejercicio)
+        // Usamos if / else if para clasificar cada cosa
+        
+        if (typeof valorActual === 'number') {
+            mensajeSalida += `[NÚMERO] Su valor es ${valorActual}`;
+            
+        } else if (typeof valorActual === 'string') {
+            mensajeSalida += `[CADENA] Su texto es "${valorActual}"`;
+            
+        } else if (typeof valorActual === 'function') {
+            mensajeSalida += `[MÉTODO] Es una función ejecutable`;
+            // Nota: no imprimimos el valorActual directo porque nos imprimiría todo el código de la función
+            
+        } else if (Array.isArray(valorActual)) {
+            // ¡La trampa del array controlada!
+            mensajeSalida += `[ARRAY] Contiene ${valorActual.length} elementos: [${valorActual.join(", ")}]`;
+            
+        } else if (typeof valorActual === 'object' && valorActual !== null) {
+            // Si es objeto, pero no es Array, ni es null...
+            mensajeSalida += `[OBJETO ANIDADO] Contiene otro objeto dentro`;
+            
+        } else {
+            mensajeSalida += `[OTRO] Tipo no contemplado (${typeof valorActual})`;
         }
+
+        // 4. IMPRIMIMOS LA LÍNEA
+        console.log(mensajeSalida);
     }
+    
+    console.log(`---------------------------\n`);
+}
 
-    console.log(`\n--- BÚSQUEDA DE DNI ---
-Se han encontrado ${contador} documentos con la letra '${letra}':
-${listadoDNI}
------------------------`);
-};
 
-// 3. EXPORTAMOS
-export { buscarDniPorLetra, calcularLetraDNI };
+export { imprimirObjeto };
