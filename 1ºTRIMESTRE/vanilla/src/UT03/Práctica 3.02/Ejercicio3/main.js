@@ -1,5 +1,6 @@
 "use strict";
 
-import { fechaConRetraso } from "./biblioteca.js";
+import { solicitarDNI } from "./biblioteca.js";
 
-console.log(fechaConRetraso());
+
+solicitarDNI();

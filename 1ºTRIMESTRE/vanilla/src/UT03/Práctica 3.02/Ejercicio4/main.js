@@ -1,3 +1,5 @@
 "use strict";
 
-import { calcular } from "./biblioteca.js";
+import { fechaConRetraso } from "./biblioteca.js";
+
+console.log(fechaConRetraso());
