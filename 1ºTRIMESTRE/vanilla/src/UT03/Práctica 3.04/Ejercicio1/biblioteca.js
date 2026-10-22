@@ -65,7 +65,9 @@ const objetoJSON = (lista) => {
         };
     });
 
-    imprimirArray(arrayObjetos);
+    const imprimrObjeto = arrayObjetos.map((valor, indice, array) => {
+        console.log(`ID: ${indice} | Nombre: ${valor}`);
+    });
 };
 
 
