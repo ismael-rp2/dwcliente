@@ -2,74 +2,61 @@
 
 const nombres = ["Ismael", "Mar", "Antonio", "Ana", "Esperanza", "Zeta"];
 
-
-
-
-//Imprimir el array;
+/**
+ * 🟢 UT03: forEach SÓLO para ejecutar efectos secundarios (imprimir) 
+ * ya que devuelve undefined.
+ */
 const imprimirArray = (lista) => {
-    lista.map((valor, indice, array) => {
-        console.log(`${indice+1}.- ${valor}`);
+    lista.forEach((valor, indice) => {
+        console.log(`${indice + 1}.- ${valor}`);
     });
 };
 
-
-//Comprobacion del array
-const comprobacion = (lista) => {
-    if(!Array.isArray(lista) || lista.length === 0){
-        console.log(`ERROR - Se debe recibir un objeto ARRAY, zoquete.`);
-        return;
-    }
-    return lista;
-};
-
-
 const nombresMayuscula = (lista) => {
-    if(!Array.isArray(lista) || lista.length === 0){
-        console.log(`ERROR - Se debe recibir un objeto ARRAY, zoquete.`);
+    // 🟢 UT03: Cláusula de guarda
+    if (!Array.isArray(lista) || lista.length === 0) {
+        console.error(`ERROR - Se debe recibir un objeto ARRAY, zoquete.`);
         return;
     }
 
-    const listaEnMayusculas = lista.map((valor, indice, array)=> valor.toUpperCase());
+    // 🟢 UT03: map() es obligatorio para transformar devolviendo un NUEVO array
+    const listaEnMayusculas = lista.map((valor) => valor.toUpperCase());
     imprimirArray(listaEnMayusculas);
 };
 
-
 const nombresOrdenadorReves = (lista) => {
-    // 1. Validación (para evitar errores si pasan algo que no es un array)
     if (!Array.isArray(lista) || lista.length === 0) {
-        console.log(`ERROR - Se debe recibir un objeto ARRAY, zoquete.`);
+        console.error(`ERROR - Se debe recibir un objeto ARRAY, zoquete.`);
         return;
     }
 
-    // 2. Corregido: Usamos [...lista] para no romper el array original, y cambiamos .short por .sort()
-    const nombresAlfabeticamente = [...lista].sort();
-
-    // 3. Poner el orden alfabético al revés
-    const listaReves = nombresAlfabeticamente.reverse();
+    // 🟢 UT03: PROHIBIDO usar .sort() y .reverse() mutadores.
+    // Usamos los métodos inmutables modernos (.toSorted y .toReversed)
+    // que devuelven un array nuevo automáticamente sin tocar el original.
+    // Además podemos encadenarlos porque devuelven arrays.
+    const listaReves = lista.toSorted().toReversed();
     
     imprimirArray(listaReves);
 };
 
-
 const objetoJSON = (lista) => {
-// 1. Validación (para evitar errores si pasan algo que no es un array)
     if (!Array.isArray(lista) || lista.length === 0) {
-        console.log(`ERROR - Se debe recibir un objeto ARRAY, zoquete.`);
+        console.error(`ERROR - Se debe recibir un objeto ARRAY, zoquete.`);
         return;
     }
 
-    const arrayObjetos = lista.map((valor,indice, array) => {
+    // 🟢 UT03: .map() crea el nuevo array de objetos JSON
+    const arrayObjetos = lista.map((valor, indice) => {
         return {
             id: indice,
-            nombres: valor
+            nombre: valor
         };
     });
 
-    const imprimrObjeto = arrayObjetos.map((valor, indice, array) => {
-        console.log(`ID: ${indice} | Nombre: ${valor}`);
+    // 🟢 UT03: .forEach() para imprimir y Desestructuración { id, nombre }
+    arrayObjetos.forEach(({ id, nombre }) => {
+        console.log(`ID: ${id} | Nombre: ${nombre}`);
     });
 };
 
-
-
-export {nombresMayuscula, nombresOrdenadorReves, objetoJSON, imprimirArray, nombres};
+export { nombresMayuscula, nombresOrdenadorReves, objetoJSON, imprimirArray, nombres };

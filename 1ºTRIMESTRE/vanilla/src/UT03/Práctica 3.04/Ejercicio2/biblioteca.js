@@ -1,66 +1,66 @@
 "use strict";
 
-
-
 /**
- * 
- * @returns {array} Un array con 10 posiciones de numeros del 1-10 
+ * Genera un array con 10 posiciones de números aleatorios (del 1 al 10).
+ * Cumple norma UT03: Uso de Spread Operator en lugar de .push() o índices.
+ * @returns {Array} Un array inmutable con los números.
  */
 const generarArray = () => {
-    const nuevoArray = [];
+    let nuevoArray = []; // Debe ser let para poder reasignarlo con el spread
 
-    for(let i = 0; i < 10; i++){
+    for (let i = 0; i < 10; i++) {
         const numeroAleatorio = Math.floor(Math.random() * 10) + 1;
-        nuevoArray[i] = numeroAleatorio;
+        // 🟢 UT03: Añadimos elementos SIN mutar el array, creando uno nuevo
+        nuevoArray = [...nuevoArray, numeroAleatorio];
     }
+    
     return nuevoArray;
 };
 
-
 /**
- * Verificar que el array es válido. Devuelve true si es válido,
- * false si NO es válido
- * @param {*} lista 
- * @returns 
+ * Verifica que el parámetro sea un array válido y tenga contenido.
+ * @param {Array} lista - El dato a comprobar.
+ * @returns {Boolean} true si es válido, false en caso contrario.
  */
 const comprobarArray = (lista) => {
-    if(!Array.isArray(lista) && lista.length < 0){
-        return;
+    // 🟢 UT03: Cláusula de guarda correcta (Responsabilidad Única)
+    if (!Array.isArray(lista) || lista.length === 0) {
+        return false;
     }
-    return lista;
+    return true;
 };
 
-
 /**
- * Imprime la lista que recibe
- * @param {*} lista 
+ * Imprime un array por consola debidamente formateado.
+ * @param {Array} lista - El array a imprimir.
  */
 const imprimirArray = (lista) => {
-    comprobarArray(lista)
-        ? lista.forEach((valor, indice, array) => 
-            console.log(`Posición: ${indice + 1} | Contenido: ${valor}`))
-        : console.error(`ERROR - ARRAY INVALIDO, ZOQUETE.`)
-    };
+    if (comprobarArray(lista)) {
+        // 🟢 UT03: Usamos forEach() porque SOLO queremos imprimir (no transformar)
+        lista.forEach((valor, indice) => {
+            console.log(`Posición: ${indice + 1} | Contenido: ${valor}`);
+        });
+    } else {
+        console.error(`ERROR - ARRAY INVÁLIDO, ZOQUETE.`);
+    }
+};
 
-
-const recorrerArray = (lista) => {
-    comprobarArray(lista)
-        ? lista.map((valor, indice, array) => {
-            if(valor > 5){
-                arrayFinal.filter(valor => valor > 5);
-            }
-        })
-        : console.error(`ERROR - ARRAY INVALIDO, ZOQUETE.`);
-}
-
-
-
+/**
+ * Une tres arrays, filtra los números mayores de 5 y los imprime.
+ * @param {Array} lista1 - Primer array.
+ * @param {Array} lista2 - Segundo array.
+ * @param {Array} lista3 - Tercer array.
+ */
 const arrayNuevo = (lista1, lista2, lista3) => {
     
+    // 1. UNIÓN (🟢 UT03: Combinación de arrays con Spread Operator)
     const arrayUnidos = [...lista1, ...lista2, ...lista3];
-    const arrayFinal = recorrerArray();
+    
+    // 2. FILTRADO (🟢 UT03: Uso correcto de .filter() para crear un nuevo array)
+    const arrayFinal = arrayUnidos.filter((valor) => valor > 5);
 
+    // 3. SALIDA
     imprimirArray(arrayFinal);
 };
 
-export {imprimirArray, generarArray, arrayNuevo};
+export { imprimirArray, generarArray, arrayNuevo };
