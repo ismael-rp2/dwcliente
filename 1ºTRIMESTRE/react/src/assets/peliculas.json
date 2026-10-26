@@ -1,0 +1,19 @@
+[
+  {
+    "titulo": "Dune: Parte Dos",
+    "cartela": "https://image.tmdb.org/t/p/w200/8b8R8l88ILGWXN422jZp0GkR8V.jpg",
+    "resumen": "Paul Atreides se une a Chani y a los Fremen mientras busca venganza contra los conspiradores que destruyeron a su familia.",
+    "actores": [
+      {
+        "foto": "https://image.tmdb.org/t/p/w200/vB8oFCzVX0V9t0u7R6b2Q97yV2F.jpg",
+        "nombre": "Timothée Chalamet",
+        "biografia": "Actor francoestadounidense conocido por Call Me by Your Name."
+      },
+      {
+        "foto": "https://image.tmdb.org/t/p/w200/5qHNjhtjMD4YWH3UP0rm4tKwxIQ.jpg",
+        "nombre": "Zendaya",
+        "biografia": "Actriz y cantante estadounidense."
+      }
+    ]
+  }
+]

@@ -95,56 +95,85 @@ const usuarios = [
 ];
 
 
+/**
+ * Verifica si el objeto pasado tiene al menos las propiedades básicas de un usuario.
+ */
 const verificarUsuario = (usuario) => {
-    if(!Array.isArray(usuario) || usuario < 0){
-        return;
+    // Un usuario debe ser un objeto, no nulo, y no un array.
+    if (typeof usuario !== 'object' || usuario === null || Array.isArray(usuario)) {
+        return false;
     }
-    return usuario;
+    return true;
 };
 
 
 
-
-const nuevoUsuario = (nuevoUsuario, listaUsuarios = usuarios) => {
-    verificarUsuario(nuevoUsuario)
-        ?  [...listaUsuarios, nuevoUsuario]
-        : console.error(`ERROR - NO ES UN ARRAY VÁLIDO, ZOQUETE`);
-    };  
-
-
-
-const mayoresDeEdad = () => {
-    let lista = usuarios.map((valor, indice, array) => {
-        lista.filter(valor => valor.preferencias.edad >= 18);
-    });
-    const personas = [...lista];
+const nuevoUsuario = (nuevoUsu, listaUsuarios = usuarios) => {
+    if (verificarUsuario(nuevoUsu)) {
+        // Retornamos un nuevo array con los usuarios existentes y el nuevo al final
+        return [...listaUsuarios, nuevoUsu];
+    } else {
+        console.error(`ERROR - NO ES UN OBJETO USUARIO VÁLIDO, ZOQUETE`);
+        return listaUsuarios; // Devolvemos la lista original si hay error
+    }
 };
 
 
-const correoYahoo = () => {
 
+const mayoresDeEdad = (listaUsuarios = usuarios) => {
+    // filter() ya devuelve un nuevo array, no necesitas mapear primero
+    const personas = listaUsuarios.filter(valor => valor.preferencias.edad >= 18);
+    return personas;
 };
+
+
+const correoYahoo = (listaUsuarios = usuarios) => {
+    const yahoo = listaUsuarios.filter(valor => valor.contacto.correoelectronico.includes('yahoo'));
+    return yahoo;
+};
+
 
 //Tema claro, mayores de edad y su país sea ESPAÑA
-const temaClaro = () => {
-
+const temaClaro = (listaUsuarios = usuarios) => {
+    const personas = listaUsuarios.filter(valor => 
+        valor.preferencias.tema === 'claro' && 
+        valor.contacto.direccion.pais === 'España' &&  // ¡Cuidado! La tilde de España a veces da problemas en consola
+        valor.preferencias.edad >= 18
+    );
+    return personas;
 };
 
 
-const faltanDatos = () => {
-
+const faltanDatos = (listaUsuarios = usuarios) => {
+    const datos = listaUsuarios.filter(valor => {
+        // Si el teléfono está vacío, consideramos que faltan datos
+        return valor.contacto.telefono === "";
+    });
+    return datos;
 };
-
 
 //Valor por defecto NO indicado
-const anadirApellidos = () => {
-
+const anadirApellidos = (listaUsuarios = usuarios) => {
+    const conApellidos = listaUsuarios.map((valor, indice, array) => {
+        // Para respetar la inmutabilidad, usamos Spread Operator para crear un objeto nuevo
+        // con todo lo que ya tenía el valor actual, más la nueva propiedad.
+        return { ...valor, apellidos: "No indicado" };
+    });
+    return conApellidos;
 };
 
 
 //Añadir a direccion una entrada llamada codigo "00000"
-const codigoPostal = () => {
-
+const codigoPostal = (listaUsuarios = usuarios) => {
+    const conCodigo = listaUsuarios.map((valor) => {
+        return {...valor, contacto: {
+                ...valor.contacto, direccion: {
+                    ...valor.contacto.direccion, codigo: "00000"
+                }
+            }
+        };
+    });
+    return conCodigo;
 };
 
 

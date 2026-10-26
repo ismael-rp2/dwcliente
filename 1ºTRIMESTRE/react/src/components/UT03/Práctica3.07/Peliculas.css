@@ -1,0 +1,82 @@
+.contenedor-principal {
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.titulo-app {
+    color: #333;
+}
+
+/* Contenedor Naranja */
+.pelicula-caja-naranja {
+    border: 3px solid #ff5722;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.pelicula-caja-naranja h2 {
+    color: #8bc34a; /* Título en verde */
+    margin-top: 0;
+}
+
+/* Flexbox Cartela-Resumen */
+.cartela-resumen-flex {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Caja Morada */
+.cartela-caja-morada {
+    border: 3px solid #9c27b0;
+    width: 150px;
+    object-fit: cover;
+}
+
+/* Caja Negra */
+.resumen-caja-negra {
+    border: 3px solid #000000;
+    padding: 15px;
+    flex: 1;
+    margin: 0;
+}
+
+/* Caja Azul */
+.elenco-caja-azul {
+    border: 3px solid #2196f3;
+    padding: 15px;
+}
+
+.elenco-caja-azul h3 {
+    color: #2196f3;
+    margin-top: 0;
+}
+
+/* Caja Verde */
+.actor-caja-verde {
+    border: 3px solid #4caf50;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.actor-caja-verde img {
+    border: 1px solid #4caf50;
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.actor-caja-verde h4 {
+    color: #4caf50;
+    margin: 0 0 5px 0;
+}
+
+.actor-caja-verde p {
+    margin: 0;
+    font-size: 0.9em;
+}
