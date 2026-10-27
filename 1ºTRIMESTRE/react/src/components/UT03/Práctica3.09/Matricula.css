@@ -1,0 +1,12 @@
+
+button{
+    color: white;
+    background-color: dodgerblue;
+    padding: 10px;
+    margin: 10px;
+}
+
+.listado-alumnos{
+    color: white;
+    border: 3px greenyellow solid;
+}

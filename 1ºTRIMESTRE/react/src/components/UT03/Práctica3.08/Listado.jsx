@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import './Listado.css';
 
 const Listado = () => {
     const [listaNumeros, setListaNumeros] = useState([]);
@@ -34,6 +33,7 @@ const Listado = () => {
             
             <div>
                 <button onClick={generarNumero}>Generar</button>
+                <br></br>
                 <button onClick={vaciaLista}>Eliminar</button>    
             </div>
 
