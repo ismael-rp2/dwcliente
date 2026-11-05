@@ -16,6 +16,22 @@ const Frutas = () => {
     };
 
 
+    const [notas, setNotas] = useState([
+    { id: 1, asignatura: "React", nota: 4 },
+    { id: 2, asignatura: "Java", nota: 8 }
+    ]);
+
+    const aprobarReact = () => {
+    const arrayModificado = notas.map((valor) => {
+        if (valor.id === 1) {
+            return { ...valor, nota: 5 };
+        } else {
+            return valor;
+        }
+    });
+
+    setNotas(arrayModificado);
+};
 
 
   return (
