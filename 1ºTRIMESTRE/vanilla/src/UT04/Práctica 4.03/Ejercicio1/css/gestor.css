@@ -110,3 +110,7 @@ h2 {
   text-align: center;
   color: red;
 }
+
+.oculta {
+    display: none !important;
+}
