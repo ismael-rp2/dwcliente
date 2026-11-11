@@ -5,34 +5,50 @@ import {
     crearTarea, 
     borrarTareaLOGICA, 
     acabarTareaLOGICA, 
-    mostrarTareasOcultas 
+    mostrarTareasOcultas, 
+    anadirTarea,
+    borrarTarea
 } from "./biblioteca.js";
 
-// 1. Limpiamos las tareas estáticas iniciales
+
+//Borrar el DOm
 limpiarTareasPrueba();
 
-// 2. Funciones globales requeridas por el enunciado (onclick en HTML)
-window.anadirTarea = () => {
-    const areaDeTexto = document.querySelector("textarea");
-    const texto = areaDeTexto.value;
 
-    if (texto.trim() === "") {
-        alert("¡No puedes añadir una tarea vacía! Zoquete.");
-    } else {
-        crearTarea(texto);
-        areaDeTexto.value = "";
-    }
+//Botón de añadir
+const botonAnadirTarea = () => {
+    const boton = document.querySelector(".add");
+    boton.addEventListener("click", anadirTarea);
 };
 
-window.borrarTarea = (id) => {
-    borrarTareaLOGICA(id);
+//Ejecutar funciona añadir
+botonAnadirTarea();
+
+
+//Para borrar la tarea
+const botonBorrarTarea = () => {
+    const boton = document.querySelector(".sho");
+    boton.addEventListener("click", borrarTarea);
 };
+botonBorrarTarea();
+
+
+
+//Para acabar la tarea
+const botonAcabarTarea = () => {
+    const boton = document.querySelector("./end");
+    boton.addEventListener("click", acabarTarea);
+};
+botonAcabarTarea();
+
 
 window.acabarTarea = (id) => {
     acabarTareaLOGICA(id);
 };
 
-// 3. Asignación de eventos mediante JS puro
+
+
+
 const botonMostrar = document.querySelector(".sho");
 if (botonMostrar) {
     botonMostrar.onclick = mostrarTareasOcultas;

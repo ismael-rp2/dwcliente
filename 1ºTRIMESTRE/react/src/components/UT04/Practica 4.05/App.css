@@ -1,0 +1,142 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 40px;
+    background-color: #fff;
+}
+
+.App, .contenedor-peliculas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos de las etiquetas de texto de la imagen */
+.etiqueta-roja { color: #ff3300; font-weight: bold; font-size: 14px; position: absolute; top: 5px; left: 5px; }
+.etiqueta-morada { color: #800080; font-weight: bold; font-size: 14px; position: absolute; top: 5px; left: 5px; }
+.etiqueta-negra { color: #000; font-weight: bold; font-size: 14px; position: absolute; top: 5px; left: 5px; }
+.etiqueta-azul { color: #336699; font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; margin-top: 15px;}
+.etiqueta-verde-oscura { color: #008000; font-weight: bold; font-size: 12px; position: absolute; top: 5px; left: 5px;}
+
+/* Contenedor principal de la Película (Borde Naranja/Rojo) */
+.pelicula-card {
+    border: 2px solid #ff4500;
+    padding: 30px 20px 20px 20px;
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 40px;
+    background-color: white;
+    text-align: center;
+}
+
+/* Título de la película */
+.titulo-pelicula {
+    color: #7cfc00; 
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contenido-principal {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Contenedor Cartela (Borde Morado) */
+.cartela-container {
+    border: 2px solid #800080;
+    padding: 30px 10px 10px 10px;
+    position: relative;
+    width: 120px;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartela {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Contenedor Resumen */
+.resumen-container {
+    border: 2px solid #000;
+    padding: 30px 10px 10px 10px;
+    position: relative;
+    flex-grow: 1;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+
+
+/* Contenedor del Elenco */
+.elenco {
+    border: 2px solid #6495ed;
+    padding: 20px;
+    position: relative;
+}
+
+/* Tarjeta del */
+.actor-card {
+    border: 2px solid #008000;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Contenedor de la foto del actor*/
+.actor-foto-container {
+    border: 2px solid #008000;
+    padding: 25px 5px 5px 5px;
+    position: relative;
+    width: 60px; 
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Textos del actor */
+.actor-info h4 {
+    color: #008000;
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.actor-info p {
+    color: #008000;
+    margin: 0;
+    font-size: 12px;
+}
+
+
+.taquilla-container {
+    border: 2px dashed #ff3300; 
+    padding: 25px 20px 20px 20px;
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.recaudacion-texto {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.oculto {
+    display: none;
+}
