@@ -1,14 +1,12 @@
-import React from 'react'
+import React from 'react';
+import './Taquilla.css';
 
-const Taquilla = ({recaudacion}) => {
-  return (
-    <>
-        <div className='taquilla-container'>
-            <span className='etiqueta-roja'>Taquilla</span>
-            <p className='recaudacion-texto'>{recaudacion}</p>
-        </div>
-    </>
-  )
-}
+// Taquilla separa la presentación del dato económico de la tarjeta de película.
+const Taquilla = ({ recaudacion }) => (
+  <div className="taquilla-container">
+    <h4>Recaudación en taquilla</h4>
+    <p className="recaudacion-texto">{recaudacion}</p>
+  </div>
+);
 
-export default Taquilla
+export default Taquilla;

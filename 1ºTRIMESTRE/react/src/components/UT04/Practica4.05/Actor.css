@@ -1,0 +1,4 @@
+.actor-card { display: flex; align-items: flex-start; gap: 12px; padding: 12px; border: 1px solid #dbe3ee; border-radius: 8px; background: white; }
+.actor-foto { width: 76px; height: 92px; flex: 0 0 76px; border-radius: 6px; object-fit: cover; background: #e2e8f0; }
+.actor-info h5 { margin: 0 0 6px; color: #166534; font-size: 1rem; }
+.actor-info p { margin: 4px 0; font-size: .85rem; line-height: 1.4; }

@@ -1,20 +1,22 @@
 import React from 'react';
+import './Actor.css';
 
+// Actor muestra la ficha de una persona del reparto.
+// El JSON de esta práctica utiliza la propiedad imagen; foto se admite por compatibilidad.
 const Actor = ({ datosActor }) => {
-    const { foto, nombre, biografia } = datosActor;
+  const { nombre, biografia, imagen, foto, fechaNacimiento } = datosActor;
+  const rutaImagen = imagen || foto;
 
-    return (
-        <div className="actor-card">
-            <div className="actor-foto-container">
-                <span className="etiqueta-verde-oscura">Foto</span>
-                <img src={foto} alt={`Foto de ${nombre}`} className="actor-foto" />
-            </div>
-            <div className="actor-info">
-                <h4>{nombre}</h4>
-                <p>{biografia}</p>
-            </div>
-        </div>
-    );
+  return (
+    <article className="actor-card">
+      {rutaImagen && <img src={rutaImagen} alt={`Fotografía de ${nombre}`} className="actor-foto" />}
+      <div className="actor-info">
+        <h5>{nombre}</h5>
+        {fechaNacimiento && <p><strong>Fecha de nacimiento:</strong> {fechaNacimiento}</p>}
+        <p>{biografia}</p>
+      </div>
+    </article>
+  );
 };
 
 export default Actor;

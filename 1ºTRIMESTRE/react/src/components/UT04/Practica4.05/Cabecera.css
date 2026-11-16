@@ -1,0 +1,4 @@
+.cabecera { padding: 38px 20px 32px; text-align: center; color: white; background: linear-gradient(120deg, #172554, #7c2d12); }
+.cabecera h1 { margin: 4px 0 8px; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: 2px; }
+.cabecera p { margin: 0; }
+.cabecera .cabecera-etiqueta { font-size: .75rem; letter-spacing: 3px; font-weight: 700; opacity: .8; }

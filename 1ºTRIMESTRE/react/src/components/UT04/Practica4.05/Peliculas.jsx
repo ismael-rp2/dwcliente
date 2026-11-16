@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import Pelicula from './Pelicula';
+import React from 'react';
+import Pelicula from './Pelicula.jsx';
 import datosPeliculas from './peliculas.json';
+import './Peliculas.css';
 
+// Peliculas obtiene los registros del JSON y genera una tarjeta por cada película.
 const Peliculas = () => {
-    const [peliculas, setPeliculas] = useState([]);
+  const peliculas = datosPeliculas.peliculas;
 
-    useEffect(() => {
-        setPeliculas(datosPeliculas.peliculas);
-    }, []); 
-
-    return (
-        <div className="contenedor-peliculas">
-            {peliculas.map((pelicula) => (
-                <Pelicula key={pelicula.id} datos={pelicula} />
-            ))}
-        </div>
-    );
+  return (
+    <section className="pagina-peliculas">
+      <h2>Esta es la página de películas</h2>
+      <p className="texto-intro">Listado de películas disponibles en la filmoteca.</p>
+      <div className="contenedor-peliculas">
+        {peliculas.map((pelicula) => (
+          <Pelicula key={pelicula.id} datos={pelicula} />
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default Peliculas;

@@ -1,55 +1,38 @@
-import React, { useRef } from 'react';
-import Elenco from './Elenco';
-import Taquilla from './Taquilla';
+import React, { useState } from 'react';
+import Elenco from './Elenco.jsx';
+import Taquilla from './Taquilla.jsx';
+import './Pelicula.css';
+
+// Pelicula presenta los datos principales y permite desplegar elenco y recaudación.
 const Pelicula = ({ datos }) => {
-    const { nombre, cartelera, resumen, actores, recaudacion } = datos;
+  const { nombre, cartelera, resumen, actores, recaudacion, director, clasificacion, nota } = datos;
+  const [mostrarElenco, setMostrarElenco] = useState(false);
+  const [mostrarTaquilla, setMostrarTaquilla] = useState(false);
 
-    const elencoRef = useRef(null);
-    const taquillaRef = useRef(null);
-
-    const botonElenco = () => {
-        if (elencoRef.current) {
-            elencoRef.current.classList.toggle('oculto');
-        }
-    };
-
-    const botonTaquilla = () => {
-        if (taquillaRef.current) {
-            taquillaRef.current.classList.toggle('oculto');
-        }
-    };
-
-    return (
-        <div className="pelicula-card">
-            <span className="etiqueta-roja">Contenedor</span>
-            <h2 className="titulo-pelicula">{nombre}</h2>
-            
-            <div className="contenido-principal">
-                <div className="cartela-container">
-                    <span className="etiqueta-morada">Portada</span>
-                    <img src={cartelera} alt={`Cartel de ${nombre}`} className="cartela" />
-                </div>
-                
-                <div className="resumen-container">
-                    <span className="etiqueta-negra">Resumen</span>
-                    <p className="resumen">{resumen}</p>
-                </div>
-            </div>
-
-            <div>
-                <button onClick={botonElenco}>Elenco</button>
-                <button onClick={botonTaquilla} >Taquilla</button>
-            </div>
-
-            <div ref={elencoRef} className="oculto">
-                <Elenco actores={actores} />
-            </div>
-
-            <div ref={taquillaRef} className="oculto">
-                <Taquilla recaudacion={recaudacion} />
-            </div>
+  return (
+    <article className="pelicula-card">
+      <h3 className="titulo-pelicula">{nombre}</h3>
+      <div className="contenido-principal">
+        <div className="cartela-container">
+          <img src={cartelera} alt={`Cartel de ${nombre}`} className="cartela" />
         </div>
-    );
+        <div className="resumen-container">
+          <p className="resumen">{resumen}</p>
+          <p className="datos-pelicula"><strong>Director:</strong> {director} · <strong>Género:</strong> {clasificacion} · <strong>Nota:</strong> {nota}/10</p>
+        </div>
+      </div>
+      <div className="acciones-pelicula">
+        <button type="button" onClick={() => setMostrarElenco(!mostrarElenco)} aria-expanded={mostrarElenco}>
+          {mostrarElenco ? 'Ocultar elenco' : 'Ver elenco'}
+        </button>
+        <button type="button" onClick={() => setMostrarTaquilla(!mostrarTaquilla)} aria-expanded={mostrarTaquilla}>
+          {mostrarTaquilla ? 'Ocultar taquilla' : 'Ver taquilla'}
+        </button>
+      </div>
+      {mostrarElenco && <Elenco actores={actores} />}
+      {mostrarTaquilla && <Taquilla recaudacion={recaudacion} />}
+    </article>
+  );
 };
 
 export default Pelicula;

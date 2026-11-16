@@ -29,8 +29,9 @@ const App = () => {
           
           {/* Rutas UT04 */}
           <Route path="/ut04" element={<Tema04 />} />
-          <Route path="/ut04/practica-4-05" element={<AppPractica405 />} />
-          
+
+          <Route path="/ut04/practica-4-05/*" element={<AppPractica405 />} />
+
           <Route path="*" element={<Error />} />
         </Routes>
       </main>

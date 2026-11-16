@@ -1,0 +1,12 @@
+.pelicula-card { width: 100%; max-width: 850px; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: white; box-shadow: 0 5px 18px #1725540d; }
+.titulo-pelicula { margin: 0 0 18px; color: #c2410c; font-size: 1.35rem; }
+.contenido-principal { display: flex; align-items: flex-start; gap: 20px; }
+.cartela-container { flex: 0 0 145px; min-height: 190px; display: flex; justify-content: center; }
+.cartela { max-width: 145px; max-height: 220px; object-fit: contain; }
+.resumen-container { flex: 1; line-height: 1.55; }
+.resumen { margin-top: 0; }
+.datos-pelicula { color: #475569; font-size: .9rem; }
+.acciones-pelicula { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+.acciones-pelicula button { border: 0; border-radius: 6px; padding: 9px 14px; color: white; background: #1d4ed8; cursor: pointer; }
+.acciones-pelicula button:hover { background: #1e40af; }
+@media (max-width: 600px) { .contenido-principal { flex-direction: column; } .cartela-container { flex-basis: auto; width: 100%; } }
