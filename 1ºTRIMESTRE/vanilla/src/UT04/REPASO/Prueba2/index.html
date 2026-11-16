@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos</title>
+    <style>
+        /* Un poco de CSS rápido para que veas el efecto de las clases */
+        .producto-caro { color: red; border: 1px solid red; padding: 10px; margin: 5px; }
+        .producto-barato { color: green; border: 1px solid green; padding: 10px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Mi Catálogo Dinámico</h1>
+    
+    <!-- AQUÍ ES DONDE JS VA A INYECTAR LOS DATOS -->
+    <div id="catalogo"></div>
+
+    <!-- Recuerda siempre el type="module" para que funcionen los import/export -->
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

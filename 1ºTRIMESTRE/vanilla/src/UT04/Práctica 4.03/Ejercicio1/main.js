@@ -2,54 +2,24 @@
 
 import { 
     limpiarTareasPrueba, 
-    crearTarea, 
-    borrarTareaLOGICA, 
-    acabarTareaLOGICA, 
     mostrarTareasOcultas, 
-    anadirTarea,
-    borrarTarea
+    anadirTarea
 } from "./biblioteca.js";
 
-
-//Borrar el DOm
+// 1. Borrar el DOM inicial de pruebas
 limpiarTareasPrueba();
 
-
-//Botón de añadir
-const botonAnadirTarea = () => {
+// 2. Configurar botón de Añadir
+const inicializarBotonAnadir = () => {
     const boton = document.querySelector(".add");
     boton.addEventListener("click", anadirTarea);
 };
+inicializarBotonAnadir();
 
-//Ejecutar funciona añadir
-botonAnadirTarea();
-
-
-//Para borrar la tarea
-const botonBorrarTarea = () => {
+// 3. Configurar botón de Mostrar
+const inicializarBotonMostrar = () => {
+    // La clase .sho es la del botón "Mostrar", la enganchamos a su función
     const boton = document.querySelector(".sho");
-    boton.addEventListener("click", borrarTarea);
+    boton.addEventListener("click", mostrarTareasOcultas);
 };
-botonBorrarTarea();
-
-
-
-//Para acabar la tarea
-const botonAcabarTarea = () => {
-    const boton = document.querySelector("./end");
-    boton.addEventListener("click", acabarTarea);
-};
-botonAcabarTarea();
-
-
-window.acabarTarea = (id) => {
-    acabarTareaLOGICA(id);
-};
-
-
-
-
-const botonMostrar = document.querySelector(".sho");
-if (botonMostrar) {
-    botonMostrar.onclick = mostrarTareasOcultas;
-}
+inicializarBotonMostrar();

@@ -1,6 +1,8 @@
 import {} from 'react';
 
+
 const Cumpleanos = ({nombre, fechaNacimiento}) => {
+
     const fechaObj = new Date(fechaNacimiento);
     const dia = fechaObj.getDate();
     const mes = fechaObj.getMonth() + 1;
@@ -17,6 +19,7 @@ const Cumpleanos = ({nombre, fechaNacimiento}) => {
                 <p>Fecha original: {fechaNacimiento}</p>
                 <p>El cumpleaños de {nombre} es el {fechaFormateado}</p>
             </div>
+
         </>
     )
 }

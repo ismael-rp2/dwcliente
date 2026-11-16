@@ -1,0 +1,34 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #252526; /* Gris oscuro tipo VSCode */
+  padding: 1rem 2rem;
+  border-bottom: 2px solid #569cd6; /* Acento azul */
+  font-family: monospace;
+}
+
+.navLogo span {
+  color: #c586c0; /* Púrpura tipo palabra reservada */
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks a {
+  color: #d4d4d4; /* Texto claro */
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.navLinks a:hover {
+  color: #4fc1ff; /* Azul claro al pasar el ratón */
+}

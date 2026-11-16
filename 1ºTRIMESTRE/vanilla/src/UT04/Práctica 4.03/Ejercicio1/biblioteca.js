@@ -9,20 +9,34 @@ const limpiarTareasPrueba = () => {
 };
 
 const crearTarea = (texto) => {
-    const idUnico = Date.now();
+    // 1. Usamos crypto.randomUUID() para generar un identificador único real (UUID v4)
+    const idUnico = crypto.randomUUID();
     const contenedorPendientes = document.getElementById("pendientes");
 
+    // Generamos el HTML con el nuevo idUnico
     const htmlNuevaTarea = `
       <div id="tarea-${idUnico}" class="tarea">
         <p>${texto}</p>
         <p class="botones">
-          <input type="button" value="Borrar" class="del" onclick="borrarTarea(${idUnico})" />
-          <input type="button" value="Acabar" class="end" onclick="acabarTarea(${idUnico})" />
+          <input type="button" value="Borrar" class="del" />
+          <input type="button" value="Acabar" class="end" />
         </p>
       </div>
     `;
+    
+    // Inyectamos el elemento en el DOM
     contenedorPendientes.insertAdjacentHTML('beforeend', htmlNuevaTarea);
-    console.log(`Nueva tarea creada con ID: ${idUnico}`);
+    
+    // Inmediatamente después de inyectarlo, seleccionamos los botones RECIÉN CREADOS
+    const tareaNueva = document.getElementById(`tarea-${idUnico}`);
+    const botonBorrar = tareaNueva.querySelector(".del");
+    const botonAcabar = tareaNueva.querySelector(".end");
+    
+    // Les asignamos el evento pasando su identificador por parámetro
+    botonBorrar.addEventListener("click", () => borrarTareaLOGICA(idUnico));
+    botonAcabar.addEventListener("click", () => acabarTareaLOGICA(idUnico));
+
+    console.log(`Nueva tarea creada con UUID: ${idUnico}`);
 };
 
 const borrarTareaLOGICA = (id) => {
@@ -82,15 +96,8 @@ const anadirTarea = () => {
     }
 };
 
-const borrarTarea = (id) => {
-    return borrarTareaLOGICA(id);
+export {
+    limpiarTareasPrueba,
+    mostrarTareasOcultas,
+    anadirTarea
 };
-
-export {limpiarTareasPrueba,
-        crearTarea,
-        borrarTareaLOGICA,
-        acabarTareaLOGICA,
-        mostrarTareasOcultas,
-        anadirTarea,
-        borrarTarea
-    };
