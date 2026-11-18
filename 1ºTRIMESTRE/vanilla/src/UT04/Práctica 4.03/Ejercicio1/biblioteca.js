@@ -4,8 +4,13 @@ const limpiarTareasPrueba = () => {
     const tareasPendientes = document.querySelectorAll(".tarea");
     const tareasAcabadas = document.querySelectorAll(".acabada");
     
-    tareasPendientes.forEach(tarea => tarea.remove());
-    tareasAcabadas.forEach(tarea => tarea.remove());
+    tareasPendientes.forEach((tarea) => {
+        return tarea.remove()
+    });
+    
+    tareasAcabadas.forEach((tarea) =>  {
+        return tarea.remove()
+    });
 };
 
 const crearTarea = (texto) => {
