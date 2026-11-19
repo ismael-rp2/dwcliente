@@ -4,3 +4,6 @@
 .sobre-titulo { color: #ea580c; font-size: .8rem; font-weight: 800; letter-spacing: 2px; }
 .boton-enlace { display: inline-block; padding: 12px 22px; border-radius: 7px; color: white; background: #ea580c; text-decoration: none; font-weight: 700; }
 .boton-enlace:hover { background: #c2410c; }
+body{
+    color: white;
+}

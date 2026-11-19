@@ -1,2 +1,5 @@
 .pie { padding: 20px; text-align: center; color: #d1d5db; background: #111827; font-size: .9rem; }
 .pie p { margin: 4px; }
+p {
+    color: white;
+}

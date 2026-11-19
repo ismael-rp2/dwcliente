@@ -17,6 +17,10 @@ const Menu = () => {
     { ruta: '/ut04/practica-4-05/acerca-de', texto: 'Acerca de' }
   ];
 
+  //IMPORTANTE---
+  //Cambiar NavLink, esta prohibido usar porque no lo hemos visto.
+  //IMPORTANTE---
+
   return (
     <nav className="menu" aria-label="Menú principal">
       {enlaces.map((enlace) => (

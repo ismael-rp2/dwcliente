@@ -1,0 +1,8 @@
+.pagina-detalle { padding: 24px; border-radius: 12px; background: white; }
+.detalle-volver { display: inline-block; margin-bottom: 22px; color: #c2410c; font-weight: 700; text-decoration: none; }
+.detalle-volver:hover { text-decoration: underline; }
+.detalle-principal { display: flex; align-items: flex-start; gap: 24px; }
+.detalle-cartel { width: 210px; max-width: 35%; height: auto; object-fit: contain; }
+.detalle-informacion { flex: 1; line-height: 1.6; }
+.detalle-informacion h3 { color: #172554; }
+@media (max-width: 620px) { .detalle-principal { flex-direction: column; } .detalle-cartel { max-width: 100%; width: 170px; } }

@@ -7,6 +7,7 @@ import Contenido from './Contenido.jsx';
 import Pie from './Pie.jsx';
 import Inicio from './Inicio.jsx';
 import Peliculas from './Peliculas.jsx';
+import PeliculaDetalle from './PeliculaDetalle.jsx';
 import Interpretes from './Interpretes.jsx';
 import Galeria from './Galeria.jsx';
 import AcercaDe from './AcercaDe.jsx';
@@ -27,6 +28,7 @@ const App = () => {
         <Routes>
           <Route index element={<Inicio />} />
           <Route path="peliculas" element={<Peliculas />} />
+          <Route path="peliculas/:id" element={<PeliculaDetalle />} />
           <Route path="interpretes" element={<Interpretes />} />
           <Route path="galeria" element={<Galeria />} />
           <Route path="acerca-de" element={<AcercaDe />} />

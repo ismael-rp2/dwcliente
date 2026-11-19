@@ -15,6 +15,9 @@ const Galeria = () => (
         </figure>
       ))}
     </div>
+    <div>
+      
+    </div>
   </section>
 );
 
