@@ -1,9 +1,6 @@
-.pagina-inicio { min-height: 340px; padding: 55px 35px; border-radius: 14px; background: white; box-shadow: 0 8px 25px #17255412; text-align: center; }
-.pagina-inicio h2 { font-size: 2rem; }
-.pagina-inicio p:not(.sobre-titulo) { max-width: 650px; margin: 0 auto 28px; line-height: 1.7; }
-.sobre-titulo { color: #ea580c; font-size: .8rem; font-weight: 800; letter-spacing: 2px; }
-.boton-enlace { display: inline-block; padding: 12px 22px; border-radius: 7px; color: white; background: #ea580c; text-decoration: none; font-weight: 700; }
-.boton-enlace:hover { background: #c2410c; }
-body{
-    color: white;
-}
+.pagina-inicio { min-height: 340px; padding: 55px 35px; border-radius: 14px; background: #fff; box-shadow: 0 8px 25px #17255412; text-align: center; color: #111827; }
+.pagina-inicio h2 { font-size: 2rem; color: #111827; }
+.pagina-inicio p:not(.sobre-titulo) { max-width: 650px; margin: 0 auto 28px; line-height: 1.7; color: #111827; }
+.sobre-titulo { color: #1d4ed8; font-size: .8rem; font-weight: 800; letter-spacing: 2px; }
+.boton-enlace { display: inline-block; padding: 12px 22px; border-radius: 7px; color: #fff; background: #1d4ed8; text-decoration: none; font-weight: 700; }
+.boton-enlace:hover { background: #1e40af; }

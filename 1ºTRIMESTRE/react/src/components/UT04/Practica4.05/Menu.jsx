@@ -1,42 +1,31 @@
-
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Menu.css';
 
-/**
- * Menú de navegación de Filmoteca.
- * Cada enlace apunta a una sección de la práctica.
- * NavLink destaca automáticamente la página activa.
- */
+/** Construye el menú sin NavLink y marca la sección actual. */
 const Menu = () => {
+  const { pathname } = useLocation();
+  const base = '/ut04/practica-4-05';
   const enlaces = [
-    { ruta: '/ut04/practica-4-05', texto: 'Inicio', exacto: true },
-    { ruta: '/ut04/practica-4-05/peliculas', texto: 'Películas' },
-    { ruta: '/ut04/practica-4-05/interpretes', texto: 'Intérpretes' },
-    { ruta: '/ut04/practica-4-05/galeria', texto: 'Galería' },
-    { ruta: '/ut04/practica-4-05/acerca-de', texto: 'Acerca de' }
+    { ruta: base, texto: 'Inicio' },
+    { ruta: `${base}/peliculas`, texto: 'Películas' },
+    { ruta: `${base}/interpretes`, texto: 'Intérpretes' },
+    { ruta: `${base}/galeria`, texto: 'Galería' },
+    { ruta: `${base}/acerca-de`, texto: 'Acerca de' }
   ];
-
-  //IMPORTANTE---
-  //Cambiar NavLink, esta prohibido usar porque no lo hemos visto.
-  //IMPORTANTE---
-
   return (
-    <nav className="menu" aria-label="Menú principal">
-      {enlaces.map((enlace) => (
-        <NavLink
-          key={enlace.ruta}
-          to={enlace.ruta}
-          end={enlace.exacto}
-          className={({ isActive }) =>
-            isActive ? 'menu-enlace activo' : 'menu-enlace'
-          }
-        >
-          {enlace.texto}
-        </NavLink>
-      ))}
+    <nav className="menu" aria-label="Menú de Filmoteca">
+      {enlaces.map((enlace) => {
+        const activo = pathname === enlace.ruta ||
+          (enlace.ruta !== base && pathname.startsWith(`${enlace.ruta}/`));
+        return (
+          <Link key={enlace.ruta} to={enlace.ruta}
+            className={activo ? 'menu-enlace activo' : 'menu-enlace'}>
+            {enlace.texto}
+          </Link>
+        );
+      })}
     </nav>
   );
 };
-
 export default Menu;

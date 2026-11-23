@@ -1,8 +1,8 @@
-.pagina-acerca { padding: 26px; border-radius: 12px; background: white; }
+.pagina-acerca { padding: 26px; border-radius: 12px; background: #fff; color: #111827; }
 .datos-aplicacion { max-width: 650px; }
 .datos-aplicacion div { display: grid; grid-template-columns: 190px 1fr; gap: 14px; padding: 13px 0; border-bottom: 1px solid #e2e8f0; }
-.datos-aplicacion dt { font-weight: 700; color: #1e40af; }
+.datos-aplicacion dt, .datos-aplicacion dd { color: #111827; }
+.datos-aplicacion dt { font-weight: 700; }
 .datos-aplicacion dd { margin: 0; }
-.aviso-autor { color: #9a3412; font-size: .9rem; }
+.aviso-autor { color: #111827; font-size: .9rem; }
 @media (max-width: 520px) { .datos-aplicacion div { grid-template-columns: 1fr; gap: 4px; } }
-.datos{ color: black};

@@ -1,38 +1,30 @@
-import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Elenco from './Elenco.jsx';
 import Taquilla from './Taquilla.jsx';
+import Error from './Error.jsx';
 import datosPeliculas from './peliculas.json';
 import './PeliculaDetalle.css';
+import React, { useState } from 'react';
 
-/**
- * PeliculaDetalle obtiene el id de la URL y busca la película correspondiente.
- * Muestra toda la información almacenada en el JSON, reutilizando Elenco y Taquilla.
- */
-
-//Esto es algo muy chulo que 
+/** Obtiene el identificador de la ruta y muestra la ficha completa sin alterar el JSON. */
 const PeliculaDetalle = () => {
   const { id } = useParams();
-  const pelicula = datosPeliculas.peliculas.find((elemento) => elemento.id === Number(id));
+  const pelicula = datosPeliculas.peliculas.find((elemento) => String(elemento.id) === id);
 
-  if (!pelicula) {
-    return (
-      <section className="pagina-detalle">
-        <h2>Película no encontrada</h2>
-        <p>No existe ninguna película con ese identificador.</p>
-        <Link className="detalle-volver" to="/ut04/practica-4-05/peliculas">Volver al listado</Link>
-      </section>
-    );
-  }
+  if (!pelicula) return <Error />;
+
+  // Controlan la visibilidad del elenco y la taquilla.
+  const [mostrarElenco, setMostrarElenco] = useState(false);
+  const [mostrarTaquilla, setMostrarTaquilla] = useState(false);
 
   return (
     <section className="pagina-detalle">
-      <Link className="detalle-volver" to="/ut04/practica-4-05/peliculas">← Volver a películas</Link>
+      <Link className="detalle-volver" to="/ut04/practica-4-05/peliculas">← Volver al listado</Link>
       <h2>{pelicula.nombre}</h2>
       <div className="detalle-principal">
         <img className="detalle-cartel" src={pelicula.cartelera} alt={`Cartel de ${pelicula.nombre}`} />
         <div className="detalle-informacion">
-          <p><strong>Año de estreno:</strong> {pelicula.anio}</p>
+          <p><strong>Año de exhibición:</strong> {pelicula.anio}</p>
           <p><strong>Director:</strong> {pelicula.director}</p>
           <p><strong>Clasificación:</strong> {pelicula.clasificacion}</p>
           <p><strong>Nota:</strong> {pelicula.nota}/10</p>
@@ -40,12 +32,31 @@ const PeliculaDetalle = () => {
           <p>{pelicula.resumen}</p>
         </div>
       </div>
+      
+<div className="acciones-pelicula">
+  <button
+    type="button"
+    onClick={() => setMostrarElenco((anterior) => !anterior)}
+    aria-expanded={mostrarElenco}
+  >
+    {mostrarElenco ? 'Ocultar elenco' : 'Ver elenco'}
+  </button>
 
-      <button>Recaudación</button>
-      <br></br>
-      <button>Elenco</button>
-      <Taquilla recaudacion={pelicula.recaudacion} />
-      <Elenco actores={pelicula.actores} />
+  <button
+    type="button"
+    onClick={() => setMostrarTaquilla((anterior) => !anterior)}
+    aria-expanded={mostrarTaquilla}
+  >
+    {mostrarTaquilla ? 'Ocultar taquilla' : 'Ver taquilla'}
+  </button>
+</div>
+
+{mostrarElenco && <Elenco actores={pelicula.actores} />}
+
+{mostrarTaquilla && (
+  <Taquilla recaudacion={pelicula.recaudacion} />
+)}
+
     </section>
   );
 };

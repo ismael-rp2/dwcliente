@@ -1,4 +1,11 @@
-.app { min-height: 100vh; display: flex; flex-direction: column; }
-body{
-    color: white;
-}
+/* Estilos limitados a Filmoteca; no modifican el portafolio. */
+.app { min-height: 100vh; display: flex; flex-direction: column; color: #dbeafe; }
+.app .contenido { flex: 1; }
+.app .contenido h2 { color: #bfdbfe; }
+.app .contenido .texto-intro { color: #dbeafe; }
+/* Toda superficie blanca utiliza texto negro, también en sus elementos hijos. */
+.app .pagina-inicio, .app .pagina-acerca, .app .pagina-detalle,
+.app .peliculas-enlace, .app .galeria-elemento, .app .actor-card,
+.app .error-filmoteca { color: #111827; }
+.app .pagina-inicio h2, .app .pagina-acerca h2, .app .pagina-detalle h2,
+.app .error-filmoteca h2 { color: #111827; }

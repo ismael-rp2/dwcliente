@@ -1,4 +1,3 @@
-.elenco { margin-top: 16px; padding: 16px; border: 1px solid #bfdbfe; border-radius: 8px; background: #eff6ff; }
-.elenco h4 { margin: 0 0 12px; color: #1e40af; }
+.elenco { margin-top: 16px; padding: 16px; border: 1px solid #bfdbfe; border-radius: 8px; background: #eff6ff; color: #111827; }
+.elenco h4 { margin: 0 0 12px; color: #111827; }
 .elenco-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
-p{  color: black;}

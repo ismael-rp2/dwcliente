@@ -1,8 +1,27 @@
-.pagina-detalle { padding: 24px; border-radius: 12px; background: white; }
-.detalle-volver { display: inline-block; margin-bottom: 22px; color: #c2410c; font-weight: 700; text-decoration: none; }
+.pagina-detalle { padding: 24px; border-radius: 12px; background: #fff; color: #111827; }
+.detalle-volver { display: inline-block; margin-bottom: 22px; color: #1d4ed8; font-weight: 700; text-decoration: none; }
 .detalle-volver:hover { text-decoration: underline; }
 .detalle-principal { display: flex; align-items: flex-start; gap: 24px; }
 .detalle-cartel { width: 210px; max-width: 35%; height: auto; object-fit: contain; }
 .detalle-informacion { flex: 1; line-height: 1.6; }
-.detalle-informacion h3 { color: #172554; }
+.detalle-informacion h3, .detalle-informacion p { color: #111827; }
 @media (max-width: 620px) { .detalle-principal { flex-direction: column; } .detalle-cartel { max-width: 100%; width: 170px; } }
+.acciones-pelicula {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.acciones-pelicula button {
+  padding: 10px 18px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.acciones-pelicula button:hover {
+  background-color: #1d4ed8;
+}

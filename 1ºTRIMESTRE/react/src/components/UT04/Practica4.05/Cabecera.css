@@ -1,4 +1,4 @@
-.cabezera{
-    color: white;
-    background-color: white;
-}
+.cabecera { padding: 36px 20px; text-align: center; background: linear-gradient(110deg, #172554, #7c2d12); color: #fff; }
+.cabecera h1 { margin: 4px 0 8px; font-size: clamp(2rem, 5vw, 3rem); color: #fff; }
+.cabecera p { margin: 4px 0; color: #fff; }
+.cabecera-etiqueta { letter-spacing: .22em; font-size: .75rem; }

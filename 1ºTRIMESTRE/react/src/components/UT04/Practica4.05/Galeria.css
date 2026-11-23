@@ -1,4 +1,5 @@
-.galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 22px; }
-.galeria-elemento { margin: 0; padding: 12px; text-align: center; background: white; border: 1px solid #e2e8f0; border-radius: 10px; }
-.galeria-elemento img { width: 100%; height: 245px; object-fit: contain; }
-.galeria-elemento figcaption { margin-top: 10px; font-weight: 700; color: #172554; }
+.galeria-submenu { display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0; }
+.galeria-submenu a { padding: 10px 14px; background: #1e40af; color: #fff; border-radius: 6px; text-decoration: none; }
+.galeria-submenu a:hover { background: #2563eb; }
+.pagina-galeria { color: #dbeafe; }
+.pagina-galeria .galeria-aviso { color: #dbeafe; }
