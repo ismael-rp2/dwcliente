@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pintarrajea</title>
+  <script type="module" src="./main.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #141418;
+      color: #e4e4e7;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 16px;
+      min-height: 100vh;
+    }
+
+    /* PRIMER DIV (IZQUIERDA): Panel lateral de colores y botón Borrar */
+    #panel-izquierdo {
+      width: 240px;
+      background-color: #222228;
+      border: 1px solid #3a3a44;
+      border-radius: 6px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #panel-izquierdo h2 {
+      margin: 0 0 14px 0;
+      font-size: 16px;
+      font-weight: bold;
+      color: #f4f4f5;
+    }
+
+    /* Rejilla de 10 círculos (2 filas de 5) */
+    #paleta {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      width: 100%;
+      justify-items: center;
+    }
+
+    .color {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 1px solid #555;
+      transition: transform 0.15s;
+    }
+
+    .color:hover {
+      transform: scale(1.1);
+    }
+
+    /* Doble aro para el color seleccionado */
+    .color.activo {
+      box-shadow: 0 0 0 2px #222228, 0 0 0 3.5px #a1a1aa;
+    }
+
+    /* Zona de texto para mostrar el color elegido desde tu JS */
+    #texto-color {
+      font-size: 13px;
+      color: #a1a1aa;
+      margin: 0 0 20px 0;
+    }
+
+    #color-seleccionado {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    /* Botón "Borrar" */
+    #btn-reiniciar {
+      width: 100%;
+      padding: 12px 0;
+      background-color: #2c2c34;
+      color: #e4e4e7;
+      border: 1px solid #52525b;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    #btn-reiniciar:hover {
+      background-color: #383842;
+    }
+
+    /* SEGUNDO DIV (DERECHA): Contenedor del lienzo blanco */
+    #panel-derecho {
+      flex: 1;
+      max-width: 720px;
+      background-color: #222228;
+      border: 1px solid #3a3a44;
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Tabla lienzo blanca 60x60 celdas de 10x10px sin bordes */
+    #lienzo {
+      width: 600px;
+      height: 600px;
+      background-color: #ffffff;
+      border-collapse: collapse;
+    }
+
+    #lienzo td {
+      background-color: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.15); /* Cuadrícula gris sutil */
+      width: 10px;
+      height: 10px;
+      padding: 0;
+    }
+
+
+    
+  </style>
+</head>
+<body>
+
+  <!-- PRIMER DIV (IZQUIERDA) -->
+  <div id="panel-izquierdo">
+    <h2>Colores</h2>
+
+    <ul id="paleta">
+      <li class="color" data-color="#ffffff" data-nombre="Blanco" style="background-color: #ffffff;"></li>
+      <li class="color" data-color="#000000" data-nombre="Negro" style="background-color: #000000;"></li>
+      <li class="color" data-color="#ef233c" data-nombre="Rojo" style="background-color: #ef233c;"></li>
+      <li class="color" data-color="#ffea00" data-nombre="Amarillo" style="background-color: #ffea00;"></li>
+      <li class="color" data-color="#55a630" data-nombre="Verde" style="background-color: #55a630;"></li>
+      
+      <li class="color activo" data-color="#4ea8de" data-nombre="Azul" style="background-color: #4ea8de;"></li>
+      <li class="color" data-color="#f77f00" data-nombre="Naranja" style="background-color: #f77f00;"></li>
+      <li class="color" data-color="#7209b7" data-nombre="Morado" style="background-color: #7209b7;"></li>
+      <li class="color" data-color="#ff70a6" data-nombre="Rosa" style="background-color: #ff70a6;"></li>
+      <li class="color" data-color="#8d5524" data-nombre="Marrón" style="background-color: #8d5524;"></li>
+    </ul>
+
+    <p id="texto-color">Seleccionado: <span id="color-seleccionado">Azul</span></p>
+
+    <button id="btn-reiniciar">Borrar</button>
+  </div>
+
+  <!-- SEGUNDO DIV (DERECHA) -->
+  <div id="panel-derecho">
+    <table id="lienzo"></table>
+  </div>
+
+</body>
+</html>
