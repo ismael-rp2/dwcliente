@@ -4,15 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 2</title>
+    <!-- Importamos la fuente Cinzel de estilo clásico romano/griego -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@500;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        #fondo{
-            background-color: rgb(23, 23, 23);
-            color: white;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #fondo {
+            /* Mantenemos el fondo oscuro pero le damos un degradado elegante */
+            background: radial-gradient(circle at center, #2c223e 0%, rgb(23, 23, 23) 100%);
+            color: #fdf6e3;
+            font-family: 'Cinzel', Georgia, serif;
+            min-height: 100vh;
+            
+            /* Centrado total en pantalla */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            /* Efecto dorado en el título */
+            background: linear-gradient(45deg, #d4af37, #fff3b0, #aa7c11);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        #primer-div {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        /* Estilo de placas/tarjetas para los nombres */
+        #primer-div p {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 15px 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #primer-div p:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        /* Colores reales específicos para cada Rey Mago en el primer div */
+        #primer-div .melchor {
+            background: linear-gradient(135deg, #8b0000, #c0392b);
+            border-color: #f1c40f;
+            color: #fff3b0;
+        }
+
+        #primer-div .gaspar {
+            background: linear-gradient(135deg, #0b5345, #16a085);
+            border-color: #a3e4d7;
+            color: #e8f8f5;
+        }
+
+        #primer-div .baltasar {
+            background: linear-gradient(135deg, #4a235a, #8e44ad);
+            border-color: #d7bde2;
+            color: #f5eef8;
+        }
+
+        #segundo-div {
+            max-width: 650px;
+            width: 100%;
+        }
+
+        /* Mantenemos tu regla original para que tu JS funcione igual */
+        .informacion {
+            display: none;
+            
+            /* Estilos que se verán cuando tu JS lo haga visible */
+            font-size: 1.25rem;
+            line-height: 1.7;
+            padding: 25px 30px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(212, 175, 55, 0.15);
+            letter-spacing: 1px;
         }
     </style>
     <script type="module" src="./main.js"></script>
 </head>
 <body id="fondo">
     <h1>Ejercicio 2</h1>
+    
+    <div id="primer-div">
+        <p class="melchor">Melchor</p>
+        <p class="gaspar">Gaspar</p>
+        <p class="baltasar">Baltasar</p>
+    </div>
+    
+    <div id="segundo-div">
+        <p class="informacion" class="melchor">El rey mayor que ofrece oro, símbolo de realeza y sabiduría.</p>
+        <p class="informacion" class="gaspar">El viajero de barba castaña que lleva incienso, signo de fe y oración.</p>
+        <p class="informacion" class="baltasar">El rey que entrega mirra, emblema de entrega y generosidad.</p>
+    </div>
 </body>
 </html>
